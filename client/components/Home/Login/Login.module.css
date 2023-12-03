@@ -1,0 +1,70 @@
+
+
+.login-container , 
+.register-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    background-color:lightskyblue;
+    position: absolute;
+    top: 300px;
+    left: 790px;
+  }
+ 
+  .rapper{
+    margin: 0; 
+    padding: 0; 
+    background-image: url('https://www.cnet.com/a/img/resize/64acee59958c6fc36fef0f6b1dde99ec18531346/hub/2019/07/18/7a52b020-c63f-460e-b326-17d007a8085c/a11-v217-02-03-18-21-still143-copy.jpg?auto=webp&fit=crop&height=675&width=1200');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    position: relative;
+    opacity: 0.8;
+  }
+  
+  
+  h2 {
+    text-align: center;
+    /* font-family: 'Roboto', sans-serif; */
+  
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+   
+
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #3366cc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  
+  button:hover {
+    background-color: #25408f;
+  }
+  

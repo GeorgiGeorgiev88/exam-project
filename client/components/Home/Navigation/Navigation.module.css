@@ -1,0 +1,56 @@
+
+
+.container {
+    max-width: 2200px;
+    margin: 0 auto;
+
+  }
+  /* .container {
+    background-image: url('https://c.files.bbci.co.uk/5509/production/_107896712_moonlanding3getty.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+  } */
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #5FBDFF;
+    color: white;
+    padding: 20px;
+  
+  
+  }
+  
+  .logo {
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 4px;
+  }
+  
+  .navLinks {
+    display: flex;
+  }
+  
+  .navLinks{
+    margin: 0 10px;
+    text-decoration: none;
+    color:rgb(97 93 145);
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+  }
+  .navLinks:hover{
+    color:white;
+    transition: color 0.3s ease
+  }
+  
+  .guest{
+    display: flex;
+  }
+
+  .user{
+    display: flex;
+  }
