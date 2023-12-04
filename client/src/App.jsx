@@ -12,6 +12,7 @@ import { useState } from "react";
 import * as eventService from "../servises/eventService";
 import Path from "../path/Path";
 import Logout from "../components/Home/Logout/Logout";
+import Create from "../components/Home/Create/Create";
 
 function App() {
   const [user, setUser] = useState({});
@@ -57,6 +58,7 @@ function App() {
           <Route path="/catalog" element={<Catalog />} />
           <Route path={`/catalog/detail/:id`} element={<Detail />} />
           <Route path="/logout" element={<Logout handleRemoveUserSession={handleRemoveUserSession} />} />
+          <Route path="/create" element={<Create/>}/>
         </Routes>
         <Footer />
       </div>

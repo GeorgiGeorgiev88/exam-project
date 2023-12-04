@@ -1,0 +1,100 @@
+
+.background{
+    margin: 0;
+    padding: 0; 
+    background-image: url('https://www.popsci.com/uploads/2022/12/21/moon-surface-orion.jpg?auto=webp&width=1440&height=810');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    opacity: 0.8;
+    z-index: 0;
+    position: relative;
+}
+
+
+.container{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* Style for the overall container */
+.container {
+    min-height: 100vh;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  
+
+}
+.mainHeader{
+    color: white;
+    font-family: "Roboto";
+    letter-spacing: 3px;
+}
+
+/* Style for the form */
+.formData {
+    display: grid;
+    gap: 10px;
+}
+
+/* Style for labels */
+.labelForm {
+    font-weight: bold;
+
+}
+
+/* Style for text inputs and textarea */
+.inputArea,
+.text {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    box-sizing: border-box;
+
+}
+
+/* Style for the button */
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.previewContainer{
+    padding: 0 20px 20px 20px;
+    width: 560px;
+    border-radius: 10px;
+    /* background-color:#5FBDFF; */
+    background-color: white;
+    overflow: hidden;
+}
+
+/* Style for the content preview section */
+.preview {
+    margin-top: 20px;
+  
+}
+
+.title {
+    margin-top: 10px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.paragraph {
+    margin-top: 10px;
+  
+}
