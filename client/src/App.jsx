@@ -36,7 +36,6 @@ function App() {
   const handleRemoveUserSession = () => {
     setUser({})
     navigate(Path.Home);
-    console.log("final")
   }
 
   const valuesToProvide = {
