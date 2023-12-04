@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import UserContext from '../../../contexts/uresContext'; // Corrected typo in import
-import * as eventService from '../../../servises/eventService'; // Corrected typo in import
+import UserContext from '../../../contexts/uresContext'; 
+import * as eventService from '../../../servises/eventService'; 
 
 const Logout = ({ handleRemoveUserSession }) => {
   const { accessToken } = useContext(UserContext);
@@ -8,19 +8,19 @@ const Logout = ({ handleRemoveUserSession }) => {
   useEffect(() => {
     const logoutUser = async () => {
       try {
-        // Assuming eventService.logout is an asynchronous operation
+       
         await eventService.logout(accessToken);
         handleRemoveUserSession();
       } catch (error) {
-        console.error('Logout failed:', error);
-        // Handle error if necessary
+        console.log('Logout failed:', error);
+      
       }
     };
 
     logoutUser();
   }, [accessToken, handleRemoveUserSession]);
 
-  return <div>Logging out...</div>; // Placeholder content during the logout process
+ 
 };
 
 export default Logout;

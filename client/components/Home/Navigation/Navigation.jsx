@@ -15,7 +15,7 @@ const Navigation = () => {
   return (
     <div className={style.container}>
       <nav className={style.navbar}>
-        <Link to="/" className={style.logo}><i className="fa-solid fa-earth-americas"> Event that changed the world</i></Link>
+        <Link to="/" className={style.logo}><i className="fa-solid fa-earth-americas">Event that changed the world</i></Link>
         <div className={style.navLinks}>
           {authenticated ? <div className={style.user}>
             <div className={style.userGreetings}>{`Hello ${email}`}</div>
