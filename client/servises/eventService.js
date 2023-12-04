@@ -32,7 +32,7 @@ export const login = async (email, password) => {
   }
 };
 
-export const register = async (email, password,username) => {
+export const register = async (email, password, username) => {
   try {
     const response = await fetch(`${baseUrl}/users/register`, {
       method: 'POST',
@@ -52,4 +52,15 @@ export const register = async (email, password,username) => {
   } catch (error) {
     console.error('Error:', error.message);
   }
+};
+
+export const logout = async (token) => {
+
+  const response = await fetch(`${baseUrl}/users/logout`, {
+    method: 'GET',
+    headers: {
+      'X-Authorization': token,
+    },
+  });
+  return response;
 };

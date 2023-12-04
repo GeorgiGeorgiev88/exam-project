@@ -11,6 +11,7 @@ import UserContext from "../contexts/uresContext";
 import { useState } from "react";
 import * as eventService from "../servises/eventService";
 import Path from "../path/Path";
+import Logout from "../components/Home/Logout/Logout";
 
 function App() {
   const [user, setUser] = useState({});
@@ -32,6 +33,12 @@ function App() {
 
   };
 
+  const handleRemoveUserSession = () => {
+    setUser({})
+    navigate(Path.Home);
+    console.log("final")
+  }
+
   const valuesToProvide = {
     email: user.email,
     username: user.username,
@@ -50,6 +57,7 @@ function App() {
           <Route path="/register" element={<Register handleUserRegister={handleUserRegister} />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path={`/catalog/detail/:id`} element={<Detail />} />
+          <Route path="/logout" element={<Logout handleRemoveUserSession={handleRemoveUserSession} />} />
         </Routes>
         <Footer />
       </div>
