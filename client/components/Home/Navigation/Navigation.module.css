@@ -54,3 +54,11 @@
   .user{
     display: flex;
   }
+
+  .userGreetings{
+    color:darkblue;
+    margin-right: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    
+  }

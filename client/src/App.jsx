@@ -10,7 +10,7 @@ import Detail from "../components/Home/Detail/Detail";
 import UserContext from "../contexts/uresContext";
 import { useState } from "react";
 import * as eventService from "../servises/eventService";
-import Path from "../path/path";
+import Path from "../path/Path";
 
 function App() {
   const [user, setUser] = useState({});
@@ -24,8 +24,8 @@ function App() {
 
   };
 
-  const handleUserRegister = async (email, password) => {
-    const result = await eventService.register(email, password)
+  const handleUserRegister = async (email, password, username) => {
+    const result = await eventService.register(email, password, username)
     setUser(result);
 
     navigate(Path.Home);
@@ -34,6 +34,7 @@ function App() {
 
   const valuesToProvide = {
     email: user.email,
+    username: user.username,
     _id: user._id,
     accessToken: user.accessToken,
     authenticated: !!user.accessToken,

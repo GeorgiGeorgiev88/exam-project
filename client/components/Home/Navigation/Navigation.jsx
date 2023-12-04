@@ -9,6 +9,7 @@ const Navigation = () => {
   const {
     authenticated,
     email,
+    username,
   } = useContext(UserContext);
 
   return (
@@ -17,6 +18,7 @@ const Navigation = () => {
         <Link to="/" className={style.logo}><i className="fa-solid fa-earth-americas"> Event that changed the world</i></Link>
         <div className={style.navLinks}>
           {authenticated ? <div className={style.user}>
+            <div className={style.userGreetings}>{`Hello ${username}`}</div>
             <Link to="/catalog" className={style.navLinks}>Catalog</Link>
             <Link to="/create" className={style.navLinks}>Create Event</Link>
             <Link to="/logout" className={style.navLinks}>Logout</Link>
