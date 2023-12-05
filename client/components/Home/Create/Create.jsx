@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
-import style from '../Create/Create.module.css'
+import React, { useState,useContext } from 'react';
+import style from '../Create/Create.module.css';
+import * as eventService from '../../../servises/eventService';
+import UserContext from '../../../contexts/uresContext';
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
     const [imageURL, setImageURL] = useState('');
+    const navigate = useNavigate()
+
+    const {accessToken} = useContext(UserContext)
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -21,11 +27,15 @@ const Create = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        eventService.create({ title, summary, imageURL },accessToken);
+        console.log(title)
+        console.log(summary)
+        console.log(imageURL)
+
+        navigate("/catalog")
 
 
-        console.log('Title:', title);
-        console.log('Summary:', summary);
-        console.log('Image URL:', imageURL);
+
     };
 
     return (

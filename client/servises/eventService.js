@@ -1,12 +1,12 @@
 const baseUrl = "http://localhost:3030";
 
 export const getAll = () => {
-  return fetch(`${baseUrl}/data/games`)
+  return fetch(`${baseUrl}/data/event`)
     .then((res) => res.json());
 };
 
 export const getOne = (id) => {
-  return fetch(`${baseUrl}/data/games/${id}`)
+  return fetch(`${baseUrl}/data/event/${id}`)
     .then((res) => res.json());
 };
 
@@ -63,4 +63,27 @@ export const logout = async (token) => {
     },
   });
   return response;
+};
+
+export const create = async (eventData, token) => {
+  try {
+    const response = await fetch(`${baseUrl}/data/event`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': token,
+      },
+      body: JSON.stringify( eventData ),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    console.log('Response data:', data);
+    return data
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
 };
