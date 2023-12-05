@@ -17,17 +17,18 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div className={style.rapper}>
+    <>
+    <div className={style.rapper}></div>
       <div className={style["detail-element"]}>
         <h2 className={style["detail-title"]}>{oneEvent.title}</h2>
         <img
-          src={oneEvent.imageUrl}
+          src={oneEvent.imageURL}
           alt={oneEvent.title}
           className={style["detail-image"]}
         />
         <p className={style["detail-description"]}>{oneEvent.summary}</p>
       </div>
-    </div>
+    </>
   );
 };
 

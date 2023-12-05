@@ -13,7 +13,7 @@
 }
 
 .detail-element {
-    max-width: 600px;
+    width: 600px;
     margin: 0px auto;
     padding: 20px;
     border: 1px solid #ddd;
