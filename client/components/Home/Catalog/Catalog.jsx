@@ -5,11 +5,11 @@ import style from "../Catalog/Catalog.module.css";
 
 export default function Catalog() {
   const [occasion, setOccasion] = useState([]);
-
+console.log(occasion)
   useEffect(() => {
     eventService.getAll()
       .then((result) => {
-        setOccasion(result)})
+        setOccasion(Object.values(result))})
       .catch((err) => console.log(err));
   }, []);
 

@@ -6,7 +6,7 @@ const Card = ({ evn }) => {
     <li className={style.flex}>
       <div className={style.card}>
         <img
-          src={evn.imageUrl}
+          src={evn.imageURL}
           alt={evn.title}
           className={style["card-image"]}
         />
