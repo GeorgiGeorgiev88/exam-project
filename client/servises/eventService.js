@@ -87,3 +87,22 @@ export const create = async (eventData, token) => {
     console.error('Error:', error.message);
   }
 };
+
+export const remove = async (id, token) => {
+  try {
+    const response = await fetch(`${baseUrl}/data/event/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': token,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+};

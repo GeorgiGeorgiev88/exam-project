@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from 'react';
 import UserContext from '../../../contexts/uresContext';
+import { useNavigate } from "react-router-dom";
 
 const Detail = () => {
   const { id } = useParams();
-  const { _id } = useContext(UserContext);
+  const { _id, accessToken } = useContext(UserContext);
+  const navigate = useNavigate()
 
   const [oneEvent, setEvent] = useState({});
 
@@ -21,6 +23,11 @@ const Detail = () => {
       .then((result) => setEvent(result))
       .catch((err) => console.log(err));
   }, [id]);
+
+  const onDeleteClick = () => {
+    eventService.remove(id, accessToken)
+    navigate("/catalog")
+  }
 
   return (
     <>
@@ -37,9 +44,10 @@ const Detail = () => {
           <Link to="/edit" className={style.editDetail}>
             Edit
           </Link>
-          <Link to="/delete" className={style.deleteDetail}>
+          <button className={style.deleteDetail} onClick={onDeleteClick}>
             Delete
-          </Link>
+          </button>
+
         </div>
           : ""}
 
