@@ -9,7 +9,7 @@ console.log(occasion)
   useEffect(() => {
     eventService.getAll()
       .then((result) => {
-        setOccasion(Object.values(result))})
+        setOccasion(result)})
       .catch((err) => console.log(err));
   }, []);
 
