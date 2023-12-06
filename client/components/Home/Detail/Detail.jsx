@@ -2,12 +2,18 @@ import style from "../Detail/Detail.module.css";
 import { useParams } from "react-router-dom";
 import * as eventService from "../../../servises/eventService";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import UserContext from '../../../contexts/uresContext';
 
 const Detail = () => {
   const { id } = useParams();
+  const { _id } = useContext(UserContext);
 
   const [oneEvent, setEvent] = useState({});
- 
+
+  const eventCreator = oneEvent._ownerId === _id;
+  console.log(`Is login user creator: ${eventCreator}`)
 
   useEffect(() => {
     eventService
@@ -18,7 +24,7 @@ const Detail = () => {
 
   return (
     <>
-    <div className={style.rapper}></div>
+      <div className={style.rapper}></div>
       <div className={style["detail-element"]}>
         <h2 className={style["detail-title"]}>{oneEvent.title}</h2>
         <img
@@ -27,6 +33,16 @@ const Detail = () => {
           className={style["detail-image"]}
         />
         <p className={style["detail-description"]}>{oneEvent.summary}</p>
+        {eventCreator ? <div className={style.actionBtn}>
+          <Link to="/edit" className={style.editDetail}>
+            Edit
+          </Link>
+          <Link to="/delete" className={style.deleteDetail}>
+            Delete
+          </Link>
+        </div>
+          : ""}
+
       </div>
     </>
   );

@@ -22,14 +22,17 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
     position: absolute;
-    left: 660px;
-    top: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   .detail-image {
-    width: 100%;
+    display: block;
+    width: 65%;
     height: auto;
-    margin-bottom: 16px;
+    margin: 0 auto;
+    
   }
   
   .detail-title {
@@ -41,3 +44,31 @@
     line-height: 1.5;
     color: #555;
   }
+
+  .actionBtn{
+    text-align: center;
+    
+  }
+
+  .editDetail,
+  .deleteDetail
+  {
+      color:black;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 2px;
+     
+  }
+  .editDetail:hover{
+      color:white;
+      background-color:#25408f ;
+  }
+
+  .deleteDetail:hover{
+    color:white;
+    background-color:rgba(255, 0, 0, 0.768) ;
+}
+  
