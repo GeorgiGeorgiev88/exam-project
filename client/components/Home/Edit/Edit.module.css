@@ -21,7 +21,7 @@
     z-index: 2;
 }
 
-/* Style for the overall container */
+
 .container {
     min-height: 100vh;
     width: 600px;
@@ -37,19 +37,19 @@
     letter-spacing: 3px;
 }
 
-/* Style for the form */
+
 .formData {
     display: grid;
     gap: 10px;
 }
 
-/* Style for labels */
+
 .labelForm {
     font-weight: bold;
 
 }
 
-/* Style for text inputs and textarea */
+
 .inputArea,
 .text {
     width: 100%;
@@ -59,8 +59,22 @@
 
 }
 
-/* Style for the button */
+.actionBtn{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
 button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.cancle{
     padding: 10px;
     background-color: #007bff;
     color: #fff;
@@ -78,7 +92,7 @@ button {
     overflow: hidden;
 }
 
-/* Style for the content preview section */
+
 .preview {
     margin-top: 20px;
   
