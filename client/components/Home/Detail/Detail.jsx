@@ -25,8 +25,9 @@ const Detail = () => {
   }, [id]);
 
   const onDeleteClick = () => {
+    alert("Are you sure?")
     eventService.remove(id, accessToken)
-    navigate("/catalog")
+    navigate("/delete")
   }
 
   return (
