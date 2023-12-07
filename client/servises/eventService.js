@@ -106,3 +106,23 @@ export const remove = async (id, token) => {
     console.error('Error:', error.message);
   }
 };
+
+export const edit = async (id, token,data) => {
+  try {
+    const response = await fetch(`${baseUrl}/data/event/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': token,
+      },
+      body: JSON.stringify( data ),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+};

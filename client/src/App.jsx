@@ -14,6 +14,7 @@ import Path from "../path/Path";
 import Logout from "../components/Home/Logout/Logout";
 import Create from "../components/Home/Create/Create";
 import Delete from "../components/Delete/Delete";
+import Edit from "../components/Home/Edit/Edit";
 
 function App() {
   const [user, setUser] = useState({});
@@ -61,6 +62,7 @@ function App() {
           <Route path="/logout" element={<Logout handleRemoveUserSession={handleRemoveUserSession} />} />
           <Route path="/create" element={<Create/>}/>
           <Route path="/delete" element={<Delete/>}/>
+          <Route path="/edit/:idEvent" element={<Edit/>}/>
         </Routes>
         <Footer />
       </div>

@@ -42,7 +42,7 @@ const Detail = () => {
         />
         <p className={style["detail-description"]}>{oneEvent.summary}</p>
         {eventCreator ? <div className={style.actionBtn}>
-          <Link to="/edit" className={style.editDetail}>
+          <Link to={`/edit/${id}`} className={style.editDetail}>
             Edit
           </Link>
           <button className={style.deleteDetail} onClick={onDeleteClick}>
