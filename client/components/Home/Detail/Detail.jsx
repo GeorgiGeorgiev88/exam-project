@@ -25,7 +25,7 @@ const Detail = () => {
   }, [id]);
 
   const onDeleteClick = () => {
-    alert("Are you sure?")
+    alert("Are you sure to delete this event permanently?")
     eventService.remove(id, accessToken)
     navigate("/delete")
   }

@@ -9,34 +9,55 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .deleteModal {
+}
+
+.background {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://d.newsweek.com/en/full/2117678/mushroom-cloud.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.deleteModal {
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .deleteButtons {
+}
+
+.deleteButtons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 20px;
-  }
-  
-  .confirmDelete,
-  .cancelDelete {
+}
+
+.confirmDelete,
+.cancelDelete {
     padding: 10px;
     cursor: pointer;
-  }
-  
-  .confirmDelete {
-    background-color: red;
-    color: white;
-  }
-  
-  .cancelDelete {
+    text-transform: uppercase;
+}
+
+.confirmDelete {
     background-color: #ccc;
     color: black;
-  }
-  
+}
+
+.cancelDelete {
+    background-color: #ccc;
+    color: black;
+    margin-left: 10px;
+}
+
+.cancelDelete:hover {
+    background-color: #5FBDFF;
+    color: white;
+}
+
+.confirmDelete:hover {
+    background-color: #0095ff;
+    color: white;
+}
