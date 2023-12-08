@@ -6,16 +6,15 @@ import { Link } from "react-router-dom";
 import { useContext } from 'react';
 import UserContext from '../../../contexts/uresContext';
 import { useNavigate } from "react-router-dom";
+import CommentSection from "../Comments/CommentsSection";
 
 const Detail = () => {
   const { id } = useParams();
   const { _id, accessToken } = useContext(UserContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [oneEvent, setEvent] = useState({});
-
   const eventCreator = oneEvent._ownerId === _id;
-  console.log(`Is login user creator: ${eventCreator}`)
 
   useEffect(() => {
     eventService
@@ -25,10 +24,10 @@ const Detail = () => {
   }, [id]);
 
   const onDeleteClick = () => {
-    alert("Are you sure to delete this event permanently?")
-    eventService.remove(id, accessToken)
-    navigate("/delete")
-  }
+    alert("Are you sure to delete this event permanently?");
+    eventService.remove(id, accessToken);
+    navigate("/delete");
+  };
 
   return (
     <>
@@ -41,17 +40,18 @@ const Detail = () => {
           className={style["detail-image"]}
         />
         <p className={style["detail-description"]}>{oneEvent.summary}</p>
-        {eventCreator ? <div className={style.actionBtn}>
-          <Link to={`/edit/${id}`} className={style.editDetail}>
-            Edit
-          </Link>
-          <button className={style.deleteDetail} onClick={onDeleteClick}>
-            Delete
-          </button>
 
-        </div>
-          : ""}
-
+        {eventCreator && (
+          <div className={style.actionBtn}>
+            <Link to={`/edit/${id}`} className={style.editDetail}>
+              Edit
+            </Link>
+            <button className={style.deleteDetail} onClick={onDeleteClick}>
+              Delete
+            </button>
+          </div>
+        )}
+        <CommentSection eventId={id} accessToken={accessToken} />
       </div>
     </>
   );

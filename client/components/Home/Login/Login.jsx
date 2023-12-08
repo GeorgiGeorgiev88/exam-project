@@ -8,6 +8,11 @@ const Login = ({handleUser}) => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
+
+    if (email == "" || password == "") {
+      return alert("All filds must be fild");
+    }
+
    handleUser(email,password);
    setEmail('');
    setPassword('');

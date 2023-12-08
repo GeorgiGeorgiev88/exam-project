@@ -8,6 +8,15 @@ const Register = ({handleUserRegister}) => {
   const [username, setUsername] = useState("")
   
   const handleRegister = () => {
+
+    if (email == "" || password == "") {
+      return alert("All filds must be fild");
+    }
+
+    if(password!=rePassword){
+      return alert("Repassword must much to password");
+  }
+
     handleUserRegister(email,password,username);
     setEmail("");
     setPassword("");

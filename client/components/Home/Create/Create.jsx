@@ -27,6 +27,10 @@ const Create = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        if (title == "" || summary == "" || imageURL == "") {
+            return alert("All filds must be fill")
+        };
+
         eventService.create({ title, summary, imageURL },accessToken);
         console.log(title)
         console.log(summary)
