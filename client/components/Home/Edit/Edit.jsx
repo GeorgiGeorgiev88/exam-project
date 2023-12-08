@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import UserContext from '../../../contexts/uresContext';
 import * as eventService from '../../../servises/eventService';
 import { useNavigate } from "react-router-dom";
@@ -9,8 +9,9 @@ import style from '../Edit/Edit.module.css'
 export default function Edit() {
     const { idEvent } = useParams();
     const { accessToken } = useContext(UserContext);
-
+    const navigate = useNavigate();
     const [oneEvent, setEvent] = useState({
+
         title: '',
         summary: '',
         imageURL: ''
@@ -20,7 +21,7 @@ export default function Edit() {
     const [summary, setSummary] = useState('');
     const [imageURL, setImageURL] = useState('');
 
-    const navigate = useNavigate();
+    
 
     useEffect(() => {
         eventService
@@ -81,7 +82,7 @@ export default function Edit() {
                             <button type="submit">Edit</button>
                         </div>
                         <div>
-                            <button type="submit" onClick={cancelEditingEvent}>Canlce</button>
+                            <button type="submit" onClick={cancelEditingEvent}>Cancel</button>
                         </div>
                     </div>
 
