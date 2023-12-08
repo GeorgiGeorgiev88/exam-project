@@ -1,4 +1,5 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Login from "../components/Home/Login/Login";
 import Navigation from "../components/Home/Navigation/Navigation";
 import HomePage from "../components/Home/HomePage/HomePage";
@@ -8,16 +9,16 @@ import style from "../src/App.module.css";
 import Catalog from "../components/Home/Catalog/Catalog";
 import Detail from "../components/Home/Detail/Detail";
 import UserContext from "../contexts/uresContext";
-import { useState } from "react";
 import * as eventService from "../servises/eventService";
 import Path from "../path/Path";
 import Logout from "../components/Home/Logout/Logout";
 import Create from "../components/Home/Create/Create";
 import Delete from "../components/Delete/Delete";
 import Edit from "../components/Home/Edit/Edit";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useLocalStorage('user',{});
   const navigate = useNavigate()
 
   const handleUser = async (email, password) => {
