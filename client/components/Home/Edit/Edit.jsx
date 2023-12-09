@@ -21,7 +21,7 @@ export default function Edit() {
     const [summary, setSummary] = useState('');
     const [imageURL, setImageURL] = useState('');
 
-    
+
 
     useEffect(() => {
         eventService
@@ -50,9 +50,13 @@ export default function Edit() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Do you want to save the changes?")
-        eventService.edit(idEvent, accessToken, { title, summary, imageURL });
-        navigate("/catalog");
+        const userConfirmed = window.confirm("Do you want to save the changes?");
+        if (userConfirmed) {
+            eventService.edit(idEvent, accessToken, { title, summary, imageURL });
+            navigate("/catalog");
+        } else {
+            console.log("Changes not saved.");
+        }
     };
 
     const cancelEditingEvent = () => {

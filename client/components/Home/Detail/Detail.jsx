@@ -24,10 +24,15 @@ const Detail = () => {
   }, [id]);
 
   const onDeleteClick = () => {
-    alert("Are you sure to delete this event permanently?");
-    eventService.remove(id, accessToken);
-    navigate("/delete");
-  };
+    const userConfirmed = window.confirm("Do you want to delete the event?");
+    if (userConfirmed) {
+      eventService.remove(id, accessToken);
+      navigate("/delete");
+    } else {
+      console.log("Not deleted")
+    }
+  }
+
 
   return (
     <>

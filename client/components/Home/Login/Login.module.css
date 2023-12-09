@@ -73,3 +73,9 @@
     color: darkblue;
     text-align: center;
   }
+
+  .registration:hover{
+    color: white;
+    transition: color 0.3s ease;
+   
+  }

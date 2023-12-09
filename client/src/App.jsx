@@ -19,6 +19,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 function App() {
   const [user, setUser] = useLocalStorage('user',{});
+  // const [user, setUser] = useState({});
   const navigate = useNavigate()
 
   const handleUser = async (email, password) => {
