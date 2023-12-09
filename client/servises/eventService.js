@@ -73,7 +73,7 @@ export const create = async (eventData, token) => {
         'Content-Type': 'application/json',
         'X-Authorization': token,
       },
-      body: JSON.stringify( eventData ),
+      body: JSON.stringify(eventData),
     });
 
     if (!response.ok) {
@@ -107,7 +107,7 @@ export const remove = async (id, token) => {
   }
 };
 
-export const edit = async (id, token,data) => {
+export const edit = async (id, token, data) => {
   try {
     const response = await fetch(`${baseUrl}/data/event/${id}`, {
       method: 'PUT',
@@ -115,13 +115,41 @@ export const edit = async (id, token,data) => {
         'Content-Type': 'application/json',
         'X-Authorization': token,
       },
-      body: JSON.stringify( data ),
+      body: JSON.stringify(data),
     });
 
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
 
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+};
+
+export const getComments = () => {
+  return fetch(`${baseUrl}/data/comments`)
+    .then((res) => res.json());
+};
+
+export const addComment = async (creatorEvent, token, comment) => {
+  try {
+    const response = await fetch(`${baseUrl}/data/comments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': token,
+      },
+      body: JSON.stringify({ text: comment, eventCreator: creatorEvent }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    console.log('Response data:', data);
+    return data
   } catch (error) {
     console.error('Error:', error.message);
   }

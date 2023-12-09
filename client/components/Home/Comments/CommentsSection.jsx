@@ -1,19 +1,29 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import * as eventService from '../../../servises/eventService';
-import style from '../Comments/CommentsSection.module.css'
+import style from '../Comments/CommentsSection.module.css';
+import { useContext } from 'react';
+import UserContext from '../../../contexts/uresContext';
 
 const CommentSection = ({ eventId, accessToken }) => {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
-    const [event, setEvent] = useState([]);
+
+    const { email, _id } = useContext(UserContext);
+
+    console.log(`Event creator: ${_id}`)
+    console.log(`Event id: ${eventId}`)
+    console.log(comments)
 
     useEffect(() => {
-        eventService
-          .getOne(eventId)
-          .then((result) => setEvent(result))
-          .catch((err) => console.log(err));
-      }, [eventId]);
-      
+        eventService.getComments()
+            .then((result) => {
+                setComments(result)
+            })
+            .catch((err) => console.log(err));
+    }, []);
+
+    const currentEventComments = comments.filter(x => x._ownerId === _id)
+
 
     const handleCommentChange = (event) => {
         setNewComment(event.target.value);
@@ -23,7 +33,7 @@ const CommentSection = ({ eventId, accessToken }) => {
         event.preventDefault();
 
         eventService
-            .addComment(eventId, accessToken, newComment)
+            .addComment(email, accessToken, newComment)
             .then((comment) => setComments([...comments, comment]))
             .catch((err) => console.log(err));
 
@@ -34,8 +44,8 @@ const CommentSection = ({ eventId, accessToken }) => {
         <div className={style.commentSection}>
             <h3>Comments</h3>
             <ul>
-                {comments.map((comment) => (
-                    <li key={comment.id}>{comment.text}</li>
+                {currentEventComments.map((comment) => (
+                    <li key={comment._id}>{`User: ${comment.eventCreator} Text: ${comment.text}`}</li>
                 ))}
             </ul>
 
@@ -48,6 +58,7 @@ const CommentSection = ({ eventId, accessToken }) => {
                 />
                 <button type="submit">Add Comment</button>
             </form>
+           
         </div>
     );
 };
