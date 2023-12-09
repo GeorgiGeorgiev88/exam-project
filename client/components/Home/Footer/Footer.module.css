@@ -1,10 +1,9 @@
-
-.foot{
+.foot {
     display: flex;
     justify-content: space-between;
 }
 
-.foot{
+.foot {
     /* background-color:#3E64FF; */
     background: radial-gradient(circle, #3E64FF, #87cefa);
     text-align: center;
@@ -13,4 +12,14 @@
     font-size: 20px;
     color: white;
     letter-spacing: 2px;
+}
+
+.softUni {
+    text-decoration: none;
+    color: white;
+    margin-top: 18px;
+}
+.softUni:hover{
+    color: darkblue;
+    transition: color 0.3s ease;
 }
