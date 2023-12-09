@@ -53,7 +53,7 @@ const CommentSection = ({ eventId, accessToken }) => {
                     ))
                 ) : (
                     <li className={style.noComments}>
-                        No comments
+                        No comments...
                     </li>
                 )}
             </ul>
