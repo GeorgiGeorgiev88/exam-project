@@ -1,11 +1,14 @@
 import { useState } from "react";
 import styles from "../Login/Login.module.css";
+import { Link } from 'react-router-dom';
 
 const Register = ({handleUserRegister}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("");
+
+ 
   
   const handleRegister = () => {
 
@@ -73,6 +76,7 @@ const Register = ({handleUserRegister}) => {
           <button type="button" onClick={handleRegister}>
             Register
           </button>
+          <Link to='/login' className={styles.registration}>You are already registered</Link>
         </form>
       </div>
     </>

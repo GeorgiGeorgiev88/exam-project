@@ -1,5 +1,5 @@
 
-
+import { Link } from 'react-router-dom';
 import { useState } from "react";
 import styles from "./Login.module.css";
 
@@ -45,6 +45,7 @@ const Login = ({handleUser}) => {
         <button type="button" onClick={handleLogin}>
           Login
         </button>
+        <Link to='/register' className={styles.registration}>You don't have registration yet</Link>
       </form>
      </div>
      </>
