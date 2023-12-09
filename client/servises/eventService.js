@@ -132,7 +132,7 @@ export const getComments = () => {
     .then((res) => res.json());
 };
 
-export const addComment = async (creatorEvent, token, comment) => {
+export const addComment = async (creatorEvent,eventId, token, comment) => {
   try {
     const response = await fetch(`${baseUrl}/data/comments`, {
       method: 'POST',
@@ -140,7 +140,7 @@ export const addComment = async (creatorEvent, token, comment) => {
         'Content-Type': 'application/json',
         'X-Authorization': token,
       },
-      body: JSON.stringify({ text: comment, eventCreator: creatorEvent }),
+      body: JSON.stringify({ text: comment, eventCreator: creatorEvent ,eventId:eventId}),
     });
 
     if (!response.ok) {

@@ -22,7 +22,7 @@ const CommentSection = ({ eventId, accessToken }) => {
             .catch((err) => console.log(err));
     }, []);
 
-    const currentEventComments = comments.filter(x => x._ownerId === _id)
+    const currentEventComments = comments.filter(x => x.eventId === eventId)
 
 
     const handleCommentChange = (event) => {
@@ -33,7 +33,7 @@ const CommentSection = ({ eventId, accessToken }) => {
         event.preventDefault();
 
         eventService
-            .addComment(email, accessToken, newComment)
+            .addComment(email, eventId, accessToken, newComment)
             .then((comment) => setComments([...comments, comment]))
             .catch((err) => console.log(err));
 
@@ -44,9 +44,18 @@ const CommentSection = ({ eventId, accessToken }) => {
         <div className={style.commentSection}>
             <h3>Comments</h3>
             <ul>
-                {currentEventComments.map((comment) => (
-                    <li key={comment._id}>{`User: ${comment.eventCreator} Text: ${comment.text}`}</li>
-                ))}
+                {currentEventComments.length > 0 ? (
+                    currentEventComments.map((comment) => (
+                        <li key={comment._id} className={style.comments}>
+                            <p>{`User: ${comment.eventCreator}`}</p>
+                            <p>{`Text: ${comment.text}`}</p>
+                        </li>
+                    ))
+                ) : (
+                    <li className={style.noComments}>
+                        No comments
+                    </li>
+                )}
             </ul>
 
 
@@ -58,7 +67,7 @@ const CommentSection = ({ eventId, accessToken }) => {
                 />
                 <button type="submit">Add Comment</button>
             </form>
-           
+
         </div>
     );
 };

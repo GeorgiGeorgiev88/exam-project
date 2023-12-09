@@ -56,7 +56,7 @@ const Detail = () => {
             </button>
           </div>
         )}
-        <CommentSection eventId={id} accessToken={accessToken} />
+        <CommentSection eventId={oneEvent._id} accessToken={accessToken} />
       </div>
     </>
   );
