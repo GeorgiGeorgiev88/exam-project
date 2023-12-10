@@ -22,8 +22,8 @@
 text-transform: uppercase;
 font-size: 50px;
 font-weight: bold;
-/* color: #5FBDFF; */
 color: black;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .listBackGround{
@@ -45,4 +45,5 @@ color: black;
     text-transform: uppercase;
     color: black;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }

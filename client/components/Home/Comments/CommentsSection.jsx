@@ -10,9 +10,8 @@ const CommentSection = ({ eventId, accessToken }) => {
 
     const { email, _id } = useContext(UserContext);
 
-    console.log(`Event creator: ${_id}`)
-    console.log(`Event id: ${eventId}`)
-    console.log(comments)
+
+
 
     useEffect(() => {
         eventService.getComments()
@@ -31,6 +30,10 @@ const CommentSection = ({ eventId, accessToken }) => {
 
     const handleSubmitComment = (event) => {
         event.preventDefault();
+
+        if (newComment.length === 0) {
+            return alert("Text fild must not be empty")
+        }
 
         eventService
             .addComment(email, eventId, accessToken, newComment)
