@@ -20,7 +20,10 @@ const Detail = () => {
     eventService
       .getOne(id)
       .then((result) => setEvent(result))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        navigate('/404')
+        console.log(err)
+      });
   }, [id]);
 
   const onDeleteClick = () => {

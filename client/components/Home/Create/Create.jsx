@@ -32,9 +32,7 @@ const Create = () => {
         };
 
         eventService.create({ title, summary, imageURL },accessToken);
-        console.log(title)
-        console.log(summary)
-        console.log(imageURL)
+        
 
         navigate("/catalog")
 

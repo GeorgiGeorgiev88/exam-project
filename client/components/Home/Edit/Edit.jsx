@@ -27,7 +27,10 @@ export default function Edit() {
         eventService
             .getOne(idEvent)
             .then((result) => setEvent(result))
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                navigate('/404')
+                console.log(err)
+            });
     }, [idEvent]);
 
     useEffect(() => {
@@ -54,7 +57,7 @@ export default function Edit() {
         if (title.length === 0 || summary.length === 0 || imageURL.length === 0) {
             return alert("All filds must be fill")
         }
-        
+
         const userConfirmed = window.confirm("Do you want to save the changes?");
         if (userConfirmed) {
             eventService.edit(idEvent, accessToken, { title, summary, imageURL });

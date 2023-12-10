@@ -3,11 +3,12 @@ import * as eventService from '../../../servises/eventService';
 import style from '../Comments/CommentsSection.module.css';
 import { useContext } from 'react';
 import UserContext from '../../../contexts/uresContext';
+import { useNavigate } from 'react-router-dom';
 
 const CommentSection = ({ eventId, accessToken }) => {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
-
+    const navigate = useNavigate()
     const { email, _id } = useContext(UserContext);
 
 
@@ -18,7 +19,10 @@ const CommentSection = ({ eventId, accessToken }) => {
             .then((result) => {
                 setComments(result)
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                navigate('/404')
+                console.log(err)
+            });
     }, []);
 
     const currentEventComments = comments.filter(x => x.eventId === eventId)
