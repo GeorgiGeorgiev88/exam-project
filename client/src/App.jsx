@@ -16,6 +16,7 @@ import Create from "../components/Home/Create/Create";
 import Delete from "../components/Delete/Delete";
 import Edit from "../components/Home/Edit/Edit";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import PageNotFound from "../components/Home/PageNotFound/PageNotFound";
 
 function App() {
   const [user, setUser] = useLocalStorage('user',{});
@@ -65,6 +66,7 @@ function App() {
           <Route path="/create" element={<Create/>}/>
           <Route path="/delete" element={<Delete/>}/>
           <Route path="/edit/:idEvent" element={<Edit/>}/>
+          <Route path="/404" element={<PageNotFound/>}/>
         </Routes>
         <Footer />
       </div>
