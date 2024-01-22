@@ -18,31 +18,30 @@ import Edit from "../components/Home/Edit/Edit";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import PageNotFound from "../components/Home/PageNotFound/PageNotFound";
 
+
 function App() {
-  const [user, setUser] = useLocalStorage('user',{});
+  const [user, setUser] = useLocalStorage("user", {});
   // const [user, setUser] = useState({});
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleUser = async (email, password) => {
-    const result = await eventService.login(email, password)
+    const result = await eventService.login(email, password);
     setUser(result);
 
     navigate(Path.Home);
-
   };
 
   const handleUserRegister = async (email, password, username) => {
-    const result = await eventService.register(email, password, username)
+    const result = await eventService.register(email, password, username);
     setUser(result);
 
     navigate(Path.Home);
-
   };
 
   const handleRemoveUserSession = () => {
-    setUser({})
+    setUser({});
     navigate(Path.Home);
-  }
+  };
 
   const valuesToProvide = {
     email: user.email,
@@ -50,7 +49,7 @@ function App() {
     _id: user._id,
     accessToken: user.accessToken,
     authenticated: !!user.accessToken,
-  }
+  };
 
   return (
     <UserContext.Provider value={valuesToProvide}>
@@ -59,14 +58,22 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login handleUser={handleUser} />} />
-          <Route path="/register" element={<Register handleUserRegister={handleUserRegister} />} />
+          <Route
+            path="/register"
+            element={<Register handleUserRegister={handleUserRegister} />}
+          />
           <Route path="/catalog" element={<Catalog />} />
           <Route path={`/catalog/detail/:id`} element={<Detail />} />
-          <Route path="/logout" element={<Logout handleRemoveUserSession={handleRemoveUserSession} />} />
-          <Route path="/create" element={<Create/>}/>
-          <Route path="/delete" element={<Delete/>}/>
-          <Route path="/edit/:idEvent" element={<Edit/>}/>
-          <Route path="/404" element={<PageNotFound/>}/>
+          <Route
+            path="/logout"
+            element={
+              <Logout handleRemoveUserSession={handleRemoveUserSession} />
+            }
+          />
+          <Route path="/create" element={<Create />} />
+          <Route path="/delete" element={<Delete />} />
+          <Route path="/edit/:idEvent" element={<Edit />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
       </div>
