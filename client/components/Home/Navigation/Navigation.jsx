@@ -9,7 +9,6 @@ const Navigation = () => {
   const {
     authenticated,
     email,
-    username,
   } = useContext(UserContext);
 
   return (

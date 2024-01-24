@@ -1,5 +1,4 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import Login from "../components/Home/Login/Login";
 import Navigation from "../components/Home/Navigation/Navigation";
 import HomePage from "../components/Home/HomePage/HomePage";
@@ -17,6 +16,7 @@ import Delete from "../components/Delete/Delete";
 import Edit from "../components/Home/Edit/Edit";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import PageNotFound from "../components/Home/PageNotFound/PageNotFound";
+import AuthGuard from "../components/Home/Guards/AuthGuard";
 
 
 function App() {
@@ -62,17 +62,17 @@ function App() {
             path="/register"
             element={<Register handleUserRegister={handleUserRegister} />}
           />
-          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/catalog" element={<AuthGuard><Catalog /></AuthGuard>} />
           <Route path={`/catalog/detail/:id`} element={<Detail />} />
           <Route
             path="/logout"
             element={
-              <Logout handleRemoveUserSession={handleRemoveUserSession} />
-            }
+              <AuthGuard><Logout handleRemoveUserSession={handleRemoveUserSession} /></AuthGuard> }
           />
-          <Route path="/create" element={<Create />} />
+          <Route path="/create" element={<AuthGuard><Create /></AuthGuard>} />
           <Route path="/delete" element={<Delete />} />
           <Route path="/edit/:idEvent" element={<Edit />} />
+          <Route path="/404" element={<PageNotFound />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
